@@ -646,28 +646,29 @@ Game.prototype.drawSsLevel = function(){
 }
 
 Game.prototype.handleClick = function(){
-    if(clickHappened){
-        if(clickOnMoveRight()){
-            this.key=39;
-        }
-        else if(clickOnMoveLeft()){
-            this.key=37;
-        }
-        else if(clickOnJump() && this.jumpReleased){
-            if(!this.hero.jumping && !this.falling)
-                this.hero.firstJump = true;
-            this.hero.jumping = true;
-            this.jumpReleased = false;
-        }
-        else if(clickOnAttack()){
-            this.hero.attack( this.levels[ this.level ] );
+
+    for(i=0;i<touches.length;i++){
+        if(clickHappened){
+            if(clickOnMoveRight(touches[i])){
+                this.key=39;
+            }
+            else if(clickOnMoveLeft(touches[i])){
+                this.key=37;
+            }
+            else if(clickOnJump(touches[i]) && this.jumpReleased){
+                if(!this.hero.jumping && !this.falling)
+                    this.hero.firstJump = true;
+                this.hero.jumping = true;
+                this.jumpReleased = false;
+            }
+            else if(clickOnAttack(touches[i])){
+                this.hero.attack( this.levels[ this.level ] );
+            }
         }
     }
-
     if(clickReleased){
         this.jumpReleased = true;
-        clickX=0;
-        clickY=0;
         this.key = 0;
     }
+
 }

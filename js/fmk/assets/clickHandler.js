@@ -2,24 +2,6 @@ var canvas = document.getElementById("game_canvas");
 
 var rect = canvas.getBoundingClientRect();
 
-canvas.addEventListener('mousedown', function(event) {
-    clickHappened = true;
-    clickReleased = false;
-    clickX = event.clientX - rect.left;
-    clickY = event.clientY - rect.top;
- }, false);
-
-var clickHappened = false;
-var clickReleased = false;
-var clickX;
-var clickY;
-
-canvas.addEventListener('mouseup', function() {
-    clickReleased = true;
-    clickX = event.clienX - rect.left;
-    clickY = event.clientY - rect.top;
-}, false);
-
 
 canvas.addEventListener('touchstart', function(event) {
     clickHappened = true;

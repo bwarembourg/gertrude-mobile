@@ -659,9 +659,7 @@ Game.prototype.drawSsLevel = function(){
 Game.prototype.handleClick = function(){
     if(clickHappened){
         console.log("clic happened");
-        if(clickOnMoveRight){
-            this.key=39;
-        }
+        this.key=39;        
     }
 
     if(clickReleased){

@@ -20,6 +20,25 @@ canvas.addEventListener('mouseup', function() {
     clickY = event.clientY - rect.top;
 }, false);
 
+
+canvas.addEventListener('touchstart', function(event) {
+    clickHappened = true;
+    clickReleased = false;
+    clickX = event.clientX - rect.left;
+    clickY = event.clientY - rect.top;
+ }, false);
+
+var clickHappened = false;
+var clickReleased = false;
+var clickX;
+var clickY;
+
+canvas.addEventListener('touchend', function() {
+    clickReleased = true;
+    clickX = event.clienX - rect.left;
+    clickY = event.clientY - rect.top;
+}, false);
+
 var clickOnMoveRight = function(){
     if( clickX > 0 && 
         clickX < BCK_WIDTH/3

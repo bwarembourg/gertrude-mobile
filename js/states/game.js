@@ -377,18 +377,7 @@ Game.prototype.update = function() {
 };
 
 Game.prototype.onKeyPressed = function(e) {
-    //UP
-    if(e.which == 38 && this.jumpReleased){
-        if(!this.hero.jumping && !this.falling)
-            this.hero.firstJump = true;
-        this.hero.jumping = true;
-        this.jumpReleased = false;
-    }
-    //ATTACK
-    else if(e.which == 88){
-        this.hero.attack( this.levels[ this.level ] );
-    }
-    else if(e.which != 38){
+    if(e.which != 38){
         this.key = e.which;
     }
         
@@ -658,16 +647,27 @@ Game.prototype.drawSsLevel = function(){
 
 Game.prototype.handleClick = function(){
     if(clickHappened){
-        console.log("clic happened");
-        this.key=39;        
+        if(clickOnMoveRight()){
+            this.key=39;
+        }
+        else if(clickOnMoveLeft()){
+            this.key=37;
+        }
+        else if(clickOnJump() && this.jumpReleased){
+            if(!this.hero.jumping && !this.falling)
+                this.hero.firstJump = true;
+            this.hero.jumping = true;
+            this.jumpReleased = false;
+        }
+        else if(clickOnAttack()){
+            this.hero.attack( this.levels[ this.level ] );
+        }
     }
 
     if(clickReleased){
-        console.log("clic released");
-        if(true)
-            this.key = 0;
-        else{
-            this.jumpReleased = true;
-        }
+        this.jumpReleased = true;
+        clickX=0;
+        clickY=0;
+        this.key = 0;
     }
 }

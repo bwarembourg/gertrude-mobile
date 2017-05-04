@@ -30,7 +30,7 @@ canvas.addEventListener('touchend', function() {
 
 var clickOnMoveLeft = function(touch){
     if( touch.clientX > 0 && 
-        touch.clientX < BCK_WIDTH/6
+        touch.clientX < BCK_WIDTH/5
     ){
         return true;
     }
@@ -39,8 +39,8 @@ var clickOnMoveLeft = function(touch){
 
 
 var clickOnMoveRight = function(touch){
-    if( touch.clientX > BCK_WIDTH/6 && 
-        touch.clientX < 2*BCK_WIDTH/6
+    if( touch.clientX > BCK_WIDTH/5 && 
+        touch.clientX < 2*BCK_WIDTH/5
     ){
         return true;
     }
@@ -48,8 +48,8 @@ var clickOnMoveRight = function(touch){
 }
 
 var clickOnJump = function(touch){
-    if( touch.clientX > BCK_WIDTH/3 && 
-        touch.clientX < 2*BCK_WIDTH/3
+    if( touch.clientX > 3*BCK_WIDTH/5 && 
+        touch.clientX < 4*BCK_WIDTH/5
     ){
         return true;
     }
@@ -57,7 +57,7 @@ var clickOnJump = function(touch){
 }
 
 var clickOnAttack = function(touch){
-    if( touch.clientX > 2*BCK_WIDTH/3 && 
+    if( touch.clientX > 4*BCK_WIDTH/5 && 
         touch.clientX < BCK_WIDTH
     ){
         return true;
